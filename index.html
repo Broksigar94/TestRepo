@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unity WebGL</title>
+  <link rel="stylesheet" href="Builds/style.css">
+  <script src="Builds/Builds.loader.js"></script>
+</head>
+<body>
+  <canvas id="unity-canvas" width="960" height="600" style="background: #000"></canvas>
+  <script>
+    createUnityInstance(document.querySelector("#unity-canvas"), {
+      dataUrl: "Builds/Builds.data",
+      frameworkUrl: "Builds/Builds.framework.js",
+      codeUrl: "Builds/Builds.wasm", // ⚠️ 이 파일은 현재 빠져 있음
+      streamingAssetsUrl: "Builds/",
+      companyName: "YourCompany",
+      productName: "YourApp",
+      productVersion: "1.0"
+    }).then((unityInstance) => {
+      console.log("Unity WebGL Loaded");
+    }).catch((message) => {
+      alert("Failed to load Unity WebGL: " + message);
+    });
+  </script>
+</body>
+</html>
